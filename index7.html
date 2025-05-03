@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroAid Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">🧠 NeuroAid</div>
+    <div class="menu">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#chatbot">Chatbot</a>
+      <a href="#tasks">Tasks</a>
+      <a href="#map">Map</a>
+      <a href="#login">Login</a>
+    </div>
+  </nav>
+  <!-- Hero Banner -->
+<div class="hero-banner">
+  <img src="https://images.pexels.com/photos/942560/pexels-photo-942560.jpeg" alt="Emergency Response" />
+</div>
+
+
+  <!-- Login Page -->
+  <div class="container" id="login">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" placeholder="Username" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  <!-- NGO Dashboard -->
+  <div class="container" id="dashboard" data-aos="fade-up">
+    <h2>NGO Dashboard</h2>
+    <div class="container" id="incidentFeedContainer" data-aos="fade-up">
+      <h2>📢 Live Incident Feed</h2>
+      <div id="incidentFeed" class="card"></div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Active Emergencies</h3>
+        <p><strong>Flood Relief - District 9</strong><br>Status: <span class="status">Ongoing</span></p>
+        <p>Reported: 23 mins ago</p>
+        <button class="btn">View Details</button>
+      </div>
+      <div class="card">
+        <h3>Volunteer Requests</h3>
+        <ul>
+          <li>Amit Sharma - Medical Aid</li>
+          <li>Riya Sen - Food Distribution</li>
+          <li>Jai Mehra - Logistics Support</li>
+        </ul>
+        <a href="#tasks" class="btn">Assign Tasks</a>
+      </div>
+      <div class="card">
+        <h3>Resources</h3>
+        <p>Beds: 12</p>
+        <p>Ambulances: 3</p>
+        <p>Food Kits: 54</p>
+        <a href="#" class="btn">Manage Inventory</a>
+      </div>
+      <div class="card">
+        <h3>Quick Actions</h3>
+
+
+
+        <button class="btn" onclick="alert('Broadcasting alert...')">🚨 Broadcast Alert</button><br>
+        <button class="btn" onclick="alert('Report downloaded')">📄 Download Report</button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Task Assignment -->
+  <div class="container" id="tasks" data-aos="fade-up">
+    <h2>Volunteer Task Assignment</h2>
+    <div class="card">
+      <p><strong>Riya Sen</strong> - Food Distribution - <span class="status">Pending</span></p>
+      <button class="btn">Assign to Team A</button>
+      <button class="btn">Mark Completed</button>
+    </div>
+  </div>
+
+  <!-- Live Map -->
+  <div class="container" id="map" data-aos="fade-up">
+    <h2>Live Incident Map</h2>
+    <div id="liveMap"></div>
+  </div>
+
+  <!-- Chatbot -->
+  <div class="container" id="chatbot" data-aos="fade-up">
+
+    <h2>🧠 NeuroAid Bot</h2>
+    <div id="emotionIndicator" style="text-align:center; font-size:1rem; margin-bottom:10px; color:white;"></div>
+
+    <div class="chatbox" id="chatBox"></div>
+    <button class="btn" onclick="downloadChatAsPDF()" style="margin-top: 10px;">📄 Download Chat Report</button>
+
+    <button class="btn" onclick="triggerQuickReport()" style="margin-bottom: 10px; background-color: #ff4c4c;">🚨 Quick
+      Report (Panic Mode)</button>
+
+    <div class="input-area">
+
+      <input type="file" id="imageUpload" accept="image/*" onchange="uploadImage()"
+        style="margin-top: 10px; color:rgb(236, 236, 236);">
+
+
+      <input id="userInput" type="text" placeholder="Type your message...">
+      <button onclick="sendMessage()">Send</button>
+      <button onclick="startVoiceInput()">🎙️</button>
+    </div>
+    <div id="smartSuggestions" style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap;"></div>
+
+  </div>
+
+
+  <footer>
+    &copy; 2025 NeuroAid. Built with 💙 for social impact.
+  </footer>
+
+  <!-- AOS Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
+
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVEZI9hWuPlJpH3lGDjJnCQliG9zLgeAk&callback=initMap"></script>
+  <script src="script.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+</body>
+
+</html>
